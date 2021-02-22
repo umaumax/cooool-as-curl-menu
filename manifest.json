@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "cooool-as-curl",
+  "version": "1.0",
+
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "cookies",
+    "clipboardWrite",
+    "<all_urls>"
+  ],
+  "icons": {
+    "48": "favicon.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  }
+}
