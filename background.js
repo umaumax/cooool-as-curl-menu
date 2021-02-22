@@ -8,11 +8,13 @@ function copy_to_clipboard(string) {
 }
 
 function escape_shell(input) {
-    return '"'+input.replace(/(["\s'$`\\])/g,'\\$1')+'"';
+    return '"' + input.replace(/(["\s'$`\\])/g, '\\$1') + '"';
 }
 
 function cookie_callback(url, callback) {
-    chrome.cookies.getAll({ url: url }, function(cookies) {
+    chrome.cookies.getAll({
+        url: url
+    }, function(cookies) {
         var cookie_text = '';
         cookies.forEach(function(item) {
             cookie_text += item.name + '=' + item.value + '; ';
@@ -39,29 +41,29 @@ function curl_handler(info, tab) {
 }
 
 chrome.contextMenus.create({
-    "title" : "Copy as wget(this link)",
-    "type" : "normal",
-    "contexts" : ["link"],
-    "onclick" : wget_handler
+    "title": "Copy as wget(this link)",
+    "type": "normal",
+    "contexts": ["link"],
+    "onclick": wget_handler
 });
 
 chrome.contextMenus.create({
-    "title" : "Copy as wget(this site)",
-    "type" : "normal",
-    "contexts" : ["page"],
-    "onclick" : wget_handler
+    "title": "Copy as wget(this site)",
+    "type": "normal",
+    "contexts": ["page"],
+    "onclick": wget_handler
 });
 
 chrome.contextMenus.create({
-    "title" : "Copy as cURL(this link)",
-    "type" : "normal",
-    "contexts" : ["link"],
-    "onclick" : curl_handler
+    "title": "Copy as cURL(this link)",
+    "type": "normal",
+    "contexts": ["link"],
+    "onclick": curl_handler
 });
 
 chrome.contextMenus.create({
-    "title" : "Copy as cURL(this site)",
-    "type" : "normal",
-    "contexts" : ["page"],
-    "onclick" : curl_handler
+    "title": "Copy as cURL(this site)",
+    "type": "normal",
+    "contexts": ["page"],
+    "onclick": curl_handler
 });
